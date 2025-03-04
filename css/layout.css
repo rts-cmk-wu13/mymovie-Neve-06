@@ -11,9 +11,6 @@
             [fullw-start] 1fr [content-start] repeat(8, 10rem) [content-end] 1fr [fullw-end];
     }
 
-    .pokedex__pokemon-figure{
-        height: 10rem;
-    }
 }
 
 
