@@ -48,6 +48,7 @@ sectionElm.innerHTML += data.results.map(movie => `
 </figure>
 <p class="myMovie__text">${movie.original_title}</p>
 <p class="myMovie__text-rating">${movie.vote_average}</p>
+<a class="myMovie__text-link" href="/details.html?name=${movie.original_title}"></a>
 </article>
 
     
