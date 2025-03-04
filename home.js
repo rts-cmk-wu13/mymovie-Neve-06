@@ -42,11 +42,12 @@ const options = {
     function(data){
 
 sectionElm.innerHTML += data.results.map(movie => `
-<article>
-<figure>
+<article class="myMovie__container">
+<figure class="myMovie__figure">
 <img src="${baseUrl}/${getIdFromMovie(movie.poster_path)}" alt="">
 </figure>
-<p>${movie.original_title}</p>
+<p class="myMovie__text">${movie.original_title}</p>
+<p class="myMovie__text-rating">${movie.vote_average}</p>
 </article>
 
     
