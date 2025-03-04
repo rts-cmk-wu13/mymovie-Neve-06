@@ -1,6 +1,16 @@
 .myMovie__figure{
-    height: 10rem;
+    width: 10rem;
+    height: 20rem;
 }
 .myMovie__container{
-    padding: 0.5rem;
+    padding: 1rem;
+    position: relative;
+}
+.myMovie__list{
+    display: flex;
+    overflow-x: scroll;
+}
+
+.myMovie__list::-webkit-scrollbar{
+    display: none;
 }
