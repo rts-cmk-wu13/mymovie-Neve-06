@@ -42,8 +42,13 @@ const options = {
     function(data){
 
 sectionElm.innerHTML += data.results.map(movie => `
+<article>
+<figure>
 <img src="${baseUrl}/${getIdFromMovie(movie.poster_path)}" alt="">
+</figure>
 <p>${movie.original_title}</p>
+</article>
+
     
 `).join("")
 document.querySelector("main").append(sectionElm)
