@@ -2,3 +2,8 @@
 .myMovie__text-link{
     position: absolute; inset: 0;
 }
+
+.myMovie__text{
+    font-family: 'Mulish';
+    font-weight: bold;
+}
