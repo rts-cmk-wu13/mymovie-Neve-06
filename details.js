@@ -3,6 +3,11 @@
  * @param {string} file_path 
  * @returns {string}
  */
+function getIdFromMovie(file_path) {
+    return file_path
+}
+const baseUrl = "https://image.tmdb.org/t/p/w500"
+
 
 
 const options = {
@@ -34,6 +39,9 @@ console.log(movie);
 let sectionElm = document.createElement("section")
 sectionElm.innerHTML =`
 <article>
+    <figure>
+        <img src="${baseUrl}/${getIdFromMovie(movie.poster_path)}" alt="">
+    </figure>
     <p class="myMovie__text">${movie.original_title}</p>
     <p>${Math.floor(movie.runtime/60)}h ${(movie.runtime%60)}min</p>
 </article>
