@@ -20,6 +20,8 @@ document.querySelector("header").append(headerElm)
 
 let sectionElm = document.createElement("section")
 sectionElm.className = "myMovie__list"
+let popularElm = document.createElement("section")
+popularElm.className = "myMovie__list-popular"
 
 
 
@@ -46,7 +48,7 @@ sectionElm.innerHTML += movies.results.map(movie => `
 <figure class="myMovie__figure">
 <img src="${baseUrl}/${getIdFromMovie(movie.poster_path)}" alt="">
 </figure>
-<p class="myMovie__text">${movie.original_title}</p>
+<h2  class="myMovie__text">${movie.original_title}</h2>
 <p class="myMovie__text-rating">${movie.vote_average.toFixed(1)}/10 IMDb</p>
 <a class="myMovie__text-link" href="/details.html?movie=${movie.id}"></a>
 </article>
@@ -59,4 +61,22 @@ document.querySelector("main").append(sectionElm)
 )
 
 
-
+  fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
+  .then(function(response) {
+    return response.json()
+}).then(
+    function(movies){
+        popularElm.innerHTML += movies.results.map(movie => `
+            <article class="myMovie__container-popular">
+            <figure class="myMovie__figure">
+            <img src="${baseUrl}/${getIdFromMovie(movie.poster_path)}" alt="">
+            </figure>
+            <h2 class="myMovie__text">${movie.original_title}</h2>
+            <p class="myMovie__text-rating">${movie.vote_average.toFixed(1)}/10 IMDb</p>
+            <a class="myMovie__text-link" href="/details.html?movie=${movie.id}"></a>
+            </article>
+            
+                
+            `).join("")
+            document.querySelector("main").append(popularElm)
+    })
