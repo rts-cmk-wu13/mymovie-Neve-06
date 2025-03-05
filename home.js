@@ -39,16 +39,16 @@ const options = {
   .then(function(response) {
     return response.json()
 }).then(
-    function(data){
+    function(movies){
 
-sectionElm.innerHTML += data.results.map(movie => `
+sectionElm.innerHTML += movies.results.map(movie => `
 <article class="myMovie__container">
 <figure class="myMovie__figure">
 <img src="${baseUrl}/${getIdFromMovie(movie.poster_path)}" alt="">
 </figure>
 <p class="myMovie__text">${movie.original_title}</p>
-<p class="myMovie__text-rating">${movie.vote_average}</p>
-<a class="myMovie__text-link" href="/details.html?name=${movie.original_title}"></a>
+<p class="myMovie__text-rating">${movie.vote_average.toFixed(1)}/10 IMDb</p>
+<a class="myMovie__text-link" href="/details.html?movie=${movie.id}"></a>
 </article>
 
     
@@ -57,4 +57,6 @@ document.querySelector("main").append(sectionElm)
 
     }
 )
+
+
 
