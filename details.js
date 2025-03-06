@@ -43,7 +43,8 @@ sectionElm.innerHTML =`
     <figure class="myMovie__details-figure">
         <img src="${baseUrl}/${getIdFromMovie(movie.backdrop_path)}" alt="">
     </figure>
-    <p class="myMovie__text">${movie.original_title}</p>
+    <h2 class="myMovie__text">${movie.original_title}</h2>
+    <p class="myMovie__text-rating">${movie.vote_average.toFixed(1)}/10 IMDb</p>
     <p>${Math.floor(movie.runtime/60)}h ${(movie.runtime%60)}min</p>
 </article>
 `
