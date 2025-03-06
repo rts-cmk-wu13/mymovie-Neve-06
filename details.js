@@ -37,10 +37,11 @@ fetch(`https://api.themoviedb.org/3/movie/${movie}?language=en-US&page=1&append_
 console.log(movie);
 
 let sectionElm = document.createElement("section")
+sectionElm.classList.add("full-width")
 sectionElm.innerHTML =`
-<article>
-    <figure>
-        <img src="${baseUrl}/${getIdFromMovie(movie.poster_path)}" alt="">
+<article class="full-width">
+    <figure class="myMovie__details-figure">
+        <img src="${baseUrl}/${getIdFromMovie(movie.backdrop_path)}" alt="">
     </figure>
     <p class="myMovie__text">${movie.original_title}</p>
     <p>${Math.floor(movie.runtime/60)}h ${(movie.runtime%60)}min</p>
