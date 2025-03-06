@@ -11,6 +11,7 @@
     padding: 1rem;
     position: relative;
 }
+
 .myMovie__list{
     display: flex;
     overflow-x: scroll;
@@ -18,4 +19,11 @@
 
 .myMovie__list::-webkit-scrollbar{
     display: none;
+}
+
+.myMovie__details-article{
+    margin: 1rem;
+} 
+.myMovie__details-description{
+    margin: 1rem;
 }
