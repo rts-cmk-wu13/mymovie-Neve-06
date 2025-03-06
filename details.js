@@ -39,14 +39,16 @@ console.log(movie);
 let sectionElm = document.createElement("section")
 sectionElm.classList.add("full-width")
 sectionElm.innerHTML =`
-<article class="full-width">
-    <figure class="myMovie__details-figure">
+    <figure class="myMovie__details-figure full-width">
         <img src="${baseUrl}/${getIdFromMovie(movie.backdrop_path)}" alt="">
     </figure>
+<section class="myMovie__details-article full-width">
     <h2 class="myMovie__text">${movie.original_title}</h2>
     <p class="myMovie__text-rating">${movie.vote_average.toFixed(1)}/10 IMDb</p>
+    <p class="myMovie__text">${movie.original_language}</p>
     <p>${Math.floor(movie.runtime/60)}h ${(movie.runtime%60)}min</p>
-</article>
+</section>
+
 `
 
 document.querySelector("main").append(sectionElm)
