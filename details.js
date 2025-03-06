@@ -45,8 +45,17 @@ sectionElm.innerHTML =`
 <section class="myMovie__details-article full-width">
     <h2 class="myMovie__text">${movie.original_title}</h2>
     <p class="myMovie__text-rating">${movie.vote_average.toFixed(1)}/10 IMDb</p>
-    <p class="myMovie__text">${movie.original_language}</p>
+
+<section>
+    ${movie.genres.map(function(genre){
+        return `
+            <p>${genre.name}</p>
+            `
+    })}
     <p>${Math.floor(movie.runtime/60)}h ${(movie.runtime%60)}min</p>
+    <p class="myMovie__text">${movie.original_language}</p>
+    <h3>Description</h3>
+    <p>${movie.overview}</p>
 </section>
 
 `
