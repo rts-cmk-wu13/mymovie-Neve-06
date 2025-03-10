@@ -9,13 +9,18 @@ function getIdFromMovie(file_path) {
 }
 const baseUrl = "https://image.tmdb.org/t/p/w500"
 
+let showingElm = document.createElement("section")
+
 let headerElm = document.createElement("nav")
 headerElm.className = "myMovie__nav"
-headerElm.innerHTML =`
+headerElm.innerHTML = `
     <h1 class="myMovie__header-text">MyMovies</h1>
     `
+showingElm.innerHTML = `
+            <section>Now showing</section>
+        `
 
-document.querySelector("header").append(headerElm)
+document.querySelector("header").append(headerElm, showingElm)
 
 
 let sectionElm = document.createElement("section")
@@ -31,19 +36,19 @@ popularElm.className = "myMovie__list-popular"
 const options = {
     method: 'GET',
     headers: {
-      accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmYTM4YjVmMjc2Y2NhNjYxMDBjZTY4NmZmNWY2MzU5OSIsIm5iZiI6MTc0MDk4NjUzOC41OCwic3ViIjoiNjdjNTU4YWFlY2UwMWNlZGExZTc1ZThjIiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.F916CMlJa7XgzqWq5hYZxr2S9w1G2vWMzzbiT4_BRX4'
+        accept: 'application/json',
+        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmYTM4YjVmMjc2Y2NhNjYxMDBjZTY4NmZmNWY2MzU5OSIsIm5iZiI6MTc0MDk4NjUzOC41OCwic3ViIjoiNjdjNTU4YWFlY2UwMWNlZGExZTc1ZThjIiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.F916CMlJa7XgzqWq5hYZxr2S9w1G2vWMzzbiT4_BRX4'
     }
-  };
-  
- 
-  fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1', options)
-  .then(function(response) {
-    return response.json()
-}).then(
-    function(movies){
+};
 
-sectionElm.innerHTML += movies.results.map(movie => `
+
+fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1&append_to_response=release_dates', options)
+    .then(function (response) {
+        return response.json()
+    }).then(
+        function (movies) {
+
+            sectionElm.innerHTML += movies.results.map(movie => `
 <article class="myMovie__container">
 <figure class="myMovie__figure">
 <img src="${baseUrl}/${getIdFromMovie(movie.poster_path)}" alt="">
@@ -55,18 +60,21 @@ sectionElm.innerHTML += movies.results.map(movie => `
 
     
 `).join("")
-document.querySelector("main").append(sectionElm)
+            document.querySelector("main").append(sectionElm)
 
-    }
-)
+        }
+    )
 
 
-  fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
-  .then(function(response) {
-    return response.json()
-}).then(
-    function(movies){
-        popularElm.innerHTML += movies.results.map(movie => `
+fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
+    .then(function (response) {
+        return response.json()
+    }).then(
+        function (movies) {
+            popularElm.innerHTML = `
+            <section>Popular</section>
+        `
+            popularElm.innerHTML += movies.results.map(movie => `
             <article class="myMovie__container-popular">
             <figure class="myMovie__figure">
             <img src="${baseUrl}/${getIdFromMovie(movie.poster_path)}" alt="">
@@ -79,4 +87,4 @@ document.querySelector("main").append(sectionElm)
                 
             `).join("")
             document.querySelector("main").append(popularElm)
-    })
+        })
