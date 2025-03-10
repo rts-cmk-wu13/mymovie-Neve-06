@@ -27,3 +27,13 @@
 .myMovie__details-description{
     margin: 1rem;
 }
+
+ .myMovie__details-cast{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+} 
+
+.myMovie__details-figure-cast{
+    height: 4rem;
+    width: 4rem;
+}
