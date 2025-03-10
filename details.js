@@ -51,7 +51,7 @@ sectionElm.innerHTML =`
         return `
             <p>${genre.name}</p>
             `
-    })}
+    }).join("")}
     <p>${Math.floor(movie.runtime/60)}h ${(movie.runtime%60)}min</p>
     <p class="myMovie__text">${movie.original_language}</p>
     <p class="myMovie__text">${movie.release_dates}</p>
@@ -59,14 +59,19 @@ sectionElm.innerHTML =`
     <p>${movie.overview}</p>
 </section>
 
-<section>
+<h3>Cast</h3>
+<section class="myMovie__details-cast columns">
     ${movie.credits.cast.map(function(castMember){
         return `
+        <div>
+            <figure class="myMovie__details-figure-cast ">
+                <img src="${baseUrl}${castMember.profile_path}" alt="">
+            </figure>
             <p>${castMember.name}</p>
-            <img src="${baseUrl}${castMember.profile_path}" alt="">
-
+    </div>
+            
         `
-    })}
+    }).join("")}
 </section>
 
 `
