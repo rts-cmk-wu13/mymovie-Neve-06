@@ -28,6 +28,13 @@
     margin: 1rem;
 }
 
+.myMovie__genre-list{
+    display: grid;
+    text-align: center;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.25rem;
+}
+
  .myMovie__details-cast{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
