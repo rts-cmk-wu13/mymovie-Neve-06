@@ -27,7 +27,7 @@ let movie = params.get("movie")
 
 
 
-fetch(`https://api.themoviedb.org/3/movie/${movie}?language=en-US&page=1&append_to_response=credits`, options)
+fetch(`https://api.themoviedb.org/3/movie/${movie}?language=en-US&page=1&append_to_response=credits,release_dates`, options)
 
 
 .then(function(response) {
@@ -54,8 +54,19 @@ sectionElm.innerHTML =`
     })}
     <p>${Math.floor(movie.runtime/60)}h ${(movie.runtime%60)}min</p>
     <p class="myMovie__text">${movie.original_language}</p>
+    <p class="myMovie__text">${movie.release_dates}</p>
     <h3>Description</h3>
     <p>${movie.overview}</p>
+</section>
+
+<section>
+    ${movie.credits.cast.map(function(castMember){
+        return `
+            <p>${castMember.name}</p>
+            <img src="${baseUrl}${castMember.profile_path}" alt="">
+
+        `
+    })}
 </section>
 
 `
