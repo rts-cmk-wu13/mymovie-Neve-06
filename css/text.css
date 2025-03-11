@@ -7,3 +7,15 @@
     font-family: 'Mulish';
     font-weight: bold;
 }
+
+.myMovie__text-rating{
+    color: var(--grey-text);
+    font-family: 'Mulish';
+}
+
+.myMovie__genre-text{
+    color: var(--genre-dark);
+    background-color: var(--genre-light);
+    padding: 0.25rem;
+    border-radius: 1rem;
+}
