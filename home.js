@@ -17,7 +17,7 @@ headerElm.innerHTML = `
     <h1 class="myMovie__header-text">MyMovies</h1>
     `
 showingElm.innerHTML = `
-            <section>Now showing</section>
+            <section class="myMovie__heading-text">Now showing</section>
         `
 
 document.querySelector("header").append(headerElm, showingElm)
@@ -72,7 +72,7 @@ fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', option
     }).then(
         function (movies) {
             popularElm.innerHTML = `
-            <section>Popular</section>
+            <section class="myMovie__heading-text">Popular</section>
         `
             popularElm.innerHTML += movies.results.map(movie => `
             <article class="myMovie__container-popular">

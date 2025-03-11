@@ -77,11 +77,11 @@ sectionElm.innerHTML =`
     <p>${Math.floor(movie.runtime/60)}h ${(movie.runtime%60)}min</p>
     <p class="myMovie__text">${movie.original_language}</p>
     <p class="myMovie__text">${movieRating(countryElm)}</p>
-    <h3 class="myMovie__text">Description</h3>
+    <h3 class="myMovie__heading-text">Description</h3>
     <p class="myMovie__text-rating">${movie.overview}</p>
 </section>
 
-<h3 class="myMovie__text">Cast</h3>
+<h3 class="myMovie__heading-tex">Cast</h3>
 <section class="myMovie__details-cast columns">
     ${movie.credits.cast.map(function(castMember){
         return `
