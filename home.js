@@ -15,7 +15,11 @@ let headerElm = document.createElement("nav")
 headerElm.className = "myMovie__nav"
 headerElm.innerHTML = `
     <h1 class="myMovie__header-text">MyMovies</h1>
-    `
+    <div class="switch">
+            <label for="switch">Dark mode</label>
+            <input type="checkbox" name="switch" id="switch">
+        </div>   
+         `
 showingElm.innerHTML = `
             <section class="myMovie__heading-text">Now showing</section>
         `
@@ -82,7 +86,7 @@ fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', option
             <h2 class="myMovie__text">${movie.original_title}</h2>
             <p class="myMovie__text-rating">${movie.vote_average.toFixed(1)}/10 IMDb</p>
             <div class="myMovie__genre-list">
-            ${movie.genre_ids.map(genre_id =>{
+            ${movie.genre_ids.map(genre_id => {
                 let currentGenre = genres.find(genre => genre.id == genre_id)
                 return `<p class="myMovie__genre-text">${currentGenre.name}</p>`
             }).join("   ")}
