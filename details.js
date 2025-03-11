@@ -36,6 +36,26 @@ fetch(`https://api.themoviedb.org/3/movie/${movie}?language=en-US&page=1&append_
     function(movie){
 console.log(movie);
 
+
+let countryElm = "US";
+
+function movieRating(countryElm){
+    const country = movie.release_dates.results.find(
+        (country) => country.iso_3166_1 === countryElm
+    );
+    let rating = "N/A";
+    if (country){
+        country.release_dates.forEach((release) =>{
+            if (release.certification){
+                rating = release.certification;
+            }
+        })
+    } else {
+        rating = rating;
+    }
+    return rating; 
+}
+
 let sectionElm = document.createElement("section")
 sectionElm.classList.add("full-width")
 sectionElm.innerHTML =`
@@ -47,19 +67,21 @@ sectionElm.innerHTML =`
     <p class="myMovie__text-rating">${movie.vote_average.toFixed(1)}/10 IMDb</p>
 
 <section>
+    <section class="myMovie__genre-list">
     ${movie.genres.map(function(genre){
         return `
-            <p>${genre.name}</p>
+            <p class="myMovie__genre-text">${genre.name}</p>
             `
     }).join("")}
+    </section>
     <p>${Math.floor(movie.runtime/60)}h ${(movie.runtime%60)}min</p>
     <p class="myMovie__text">${movie.original_language}</p>
-    <p class="myMovie__text">${movie.release_dates}</p>
-    <h3>Description</h3>
-    <p>${movie.overview}</p>
+    <p class="myMovie__text">${movieRating(countryElm)}</p>
+    <h3 class="myMovie__text">Description</h3>
+    <p class="myMovie__text-rating">${movie.overview}</p>
 </section>
 
-<h3>Cast</h3>
+<h3 class="myMovie__text">Cast</h3>
 <section class="myMovie__details-cast columns">
     ${movie.credits.cast.map(function(castMember){
         return `
