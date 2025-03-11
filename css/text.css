@@ -19,3 +19,7 @@
     padding: 0.25rem;
     border-radius: 1rem;
 }
+
+.myMovie__heading-text{
+    font-family: 'Merriweather';
+}
