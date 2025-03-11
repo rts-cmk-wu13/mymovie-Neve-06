@@ -81,6 +81,10 @@ fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', option
             </figure>
             <h2 class="myMovie__text">${movie.original_title}</h2>
             <p class="myMovie__text-rating">${movie.vote_average.toFixed(1)}/10 IMDb</p>
+            ${movie.genre_ids.map(genre_id =>{
+                let currentGenre = genres.find(genre => genre.id == genre_id)
+                return `${currentGenre.name}`
+            }).join("   ")}
             <a class="myMovie__text-link" href="/details.html?movie=${movie.id}"></a>
             </article>
             
