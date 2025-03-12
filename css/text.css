@@ -22,4 +22,5 @@
 
 .myMovie__heading-text{
     font-family: 'Merriweather';
+    color: light-dark( var(--dark-color), var(--genre-light));
 }

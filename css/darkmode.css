@@ -12,15 +12,7 @@
         color-scheme: light;
     }
      
-    html, input, textarea, button{
-        color: light-dark(var(--dark-color), var(--light-color));
-        background-color: light-dark(var(--light-color), var(--dark-color));
-    }
-     
-    input, textarea, button{
-        border: 1px solid light-dark(var(--dark-color), var(--light-color))
-    }
-     
+
     .switch {
         position: relative;
         display: inline-block;
@@ -78,8 +70,4 @@
      
       .slider:before {
         border-radius: 50%;
-      }
-     
-      h2{
-        color: light-dark(orange, green);
       }
