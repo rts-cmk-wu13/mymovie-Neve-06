@@ -25,7 +25,7 @@ let movie = params.get("movie")
 
 
 let headerElm = document.createElement("nav")
-headerElm.className = "myMovie__nav"
+headerElm.className = "myMovie__details-nav"
 headerElm.innerHTML = `
 <a href="index.html"><i class="fa-solid fa-arrow-left"></i></a>
     <div class="switch">
@@ -95,21 +95,30 @@ sectionElm.innerHTML =`
 <h3 class="myMovie__heading-text">Cast</h3>
 <section class="myMovie__details-cast columns">
     ${movie.credits.cast.map(function(castMember){
+        console.log(castMember.profile_path);
         return `
         <div>
-            <figure class="myMovie__details-figure-cast ">
-                <img src="${baseUrl}${castMember.profile_path}" alt="">
+            <figure class="myMovie__details-figure-cast">
+                ${castMember.profile_path != null ? actorImg(castMember.profile_path): placeholderImg()}
+                
             </figure>
             <p>${castMember.name}</p>
-    </div>
+            </div> 
+            `
+            }).join("")}
+            </section>
             
-        `
-    }).join("")}
-</section>
+            `
+            
+            document.querySelector("main").append(sectionElm)
+            ;
+            
+        })
 
-`
-
-document.querySelector("main").append(sectionElm)
-;
-
-    })
+function actorImg(path){
+   return `<img src="${baseUrl}${path}"/>`
+}
+function placeholderImg(){
+   return `<img src="placeholder.png"/>`
+}
+        // ${castMember.profile_path != null? `<img src="${baseUrl}${castMember.profile_path}"/>` : `<img src="placeholder.png" alt="">`}
