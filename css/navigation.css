@@ -1,3 +1,13 @@
 .myMovie__header-text{
     font-family: 'Mulish';
 }
+
+.myMovie__nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.myMovie__menu{
+    width: 1rem;
+}
