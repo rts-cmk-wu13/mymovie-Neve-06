@@ -27,7 +27,7 @@ let movie = params.get("movie")
 let headerElm = document.createElement("nav")
 headerElm.className = "myMovie__nav"
 headerElm.innerHTML = `
-<i class="fa-solid fa-arrow-left"></i>
+<a href="index.html"><i class="fa-solid fa-arrow-left"></i></a>
     <div class="switch">
             <label for="switch">
             <input type="checkbox" name="switch" id="switch">
