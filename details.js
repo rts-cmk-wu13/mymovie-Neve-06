@@ -24,7 +24,18 @@ let params = new URLSearchParams(search)
 let movie = params.get("movie")
 
 
-
+let headerElm = document.createElement("nav")
+headerElm.className = "myMovie__nav"
+headerElm.innerHTML = `
+<i class="fa-solid fa-arrow-left"></i>
+    <div class="switch">
+            <label for="switch">
+            <input type="checkbox" name="switch" id="switch">
+            <span class="slider"></span>
+            </label>
+        </div>   
+         `
+document.querySelector("header").append(headerElm)
 
 
 fetch(`https://api.themoviedb.org/3/movie/${movie}?language=en-US&page=1&append_to_response=credits,release_dates`, options)
@@ -81,7 +92,7 @@ sectionElm.innerHTML =`
     <p class="myMovie__text-rating">${movie.overview}</p>
 </section>
 
-<h3 class="myMovie__heading-tex">Cast</h3>
+<h3 class="myMovie__heading-text">Cast</h3>
 <section class="myMovie__details-cast columns">
     ${movie.credits.cast.map(function(castMember){
         return `
