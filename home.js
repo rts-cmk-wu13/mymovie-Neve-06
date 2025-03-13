@@ -14,14 +14,17 @@ let showingElm = document.createElement("section")
 let headerElm = document.createElement("nav")
 headerElm.className = "myMovie__nav"
 headerElm.innerHTML = `
+<i class="fa-solid fa-bars"></i>
     <h1 class="myMovie__header-text">MyMovies</h1>
     <div class="switch">
-            <label for="switch">Dark mode</label>
+            <label for="switch">
             <input type="checkbox" name="switch" id="switch">
+            <span class="slider"></span>
+            </label>
         </div>   
          `
 showingElm.innerHTML = `
-            <section class="myMovie__heading-text">Now showing</section>
+            <section><h2 class="myMovie__heading-text">Now showing</h2></section>
         `
 
 document.querySelector("header").append(headerElm, showingElm)
@@ -76,7 +79,7 @@ fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', option
     }).then(
         function (movies) {
             popularElm.innerHTML = `
-            <section class="myMovie__heading-text">Popular</section>
+            <section><h2 class="myMovie__heading-text">Popular</h2></section>
         `
             popularElm.innerHTML += movies.results.map(movie => `
             <article class="myMovie__container-popular">
