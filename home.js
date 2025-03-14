@@ -38,8 +38,6 @@ popularElm.className = "myMovie__list-popular"
 
 
 
-
-
 const options = {
     method: 'GET',
     headers: {
@@ -101,3 +99,16 @@ fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', option
             `).join("")
             document.querySelector("main").append(popularElm)
         })
+
+
+
+let footerElm = document.createElement("section")
+footerElm.className = "footer_main"
+footerElm.innerHTML = `
+<section class="myMovie__footer-container">
+    <i class="fa-solid fa-film"></i>
+    <i class="fa-solid fa-ticket"></i>
+    <i class="fa-regular fa-bookmark"></i>
+    </section>
+`
+        document.querySelector("footer").append(footerElm)
