@@ -1,15 +1,42 @@
  
 :root{
     color-scheme: light dark;
+    --black-text: #000000;
     --dark-color: #15141F;
     --light-color: #ffffff;
+    --genre-dark: #88A4E8;
+    --genre-light: #DBE3FF;
+    --grey-text: #9C9C9C;
+    --blue-text: #110E47;
+    --dark-footer: #000000;  
+ 
     }
+
+
+   
+  
+  
+    
+
+  
+  
+ 
      
     [data-dark="true"]{
         color-scheme: dark;
     }
     [data-dark="false"]{
         color-scheme: light;
+    }
+
+    
+    html{
+    color: light-dark(var(--dark-color), var(--light-color));
+    background-color: light-dark(var(--light-color), var(--dark-color));
+    }
+
+    input, textarea{
+    border: 1px solid light-dark(var(--dark-color), var(--light-color));
     }
      
 
@@ -33,7 +60,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: #ccc;
+        background-color: #AAA9B1;
         -webkit-transition: .4s;
         transition: .4s;
       }
@@ -45,17 +72,17 @@
         width: 26px;
         left: 4px;
         bottom: 4px;
-        background-color: white;
+        background-color: black;
         -webkit-transition: .4s;
         transition: .4s;
       }
      
       input:checked + .slider {
-        background-color: #2196F3;
+        background-color: white;
       }
      
       input:focus + .slider {
-        box-shadow: 0 0 1px #2196F3;
+        box-shadow: 0 0 1px #AAA9B1;
       }
      
       input:checked + .slider:before {
