@@ -7,7 +7,14 @@
     justify-content: space-between;
     align-items: center;
 }
-
-.myMovie__menu{
-    width: 1rem;
+.myMovie__details-nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    width: 100%;
+    padding-top: 1rem;
 }
+
