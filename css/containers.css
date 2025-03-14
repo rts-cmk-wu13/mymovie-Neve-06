@@ -1,46 +1,71 @@
-.myMovie__figure{
+.myMovie__header {
+    position: relative;
+}
+
+.myMovie__figure {
     width: 13rem;
     height: 20rem;
 }
-.myMovie__container{
+
+.myMovie__container {
     padding: 1rem;
     position: relative;
 }
-.myMovie__container-popular{
+
+.myMovie__container-popular {
     display: grid;
     padding: 1rem;
     position: relative;
 }
 
-.myMovie__list{
+.myMovie__list {
     display: flex;
     overflow-x: scroll;
 }
 
-.myMovie__list::-webkit-scrollbar{
+.myMovie__list::-webkit-scrollbar {
     display: none;
 }
 
-.myMovie__details-article{
-    margin: 1rem;
-} 
-.myMovie__details-description{
+.myMovie__details-article {
     margin: 1rem;
 }
 
-.myMovie__genre-list{
+.myMovie__details-description {
+    margin: 1rem;
+}
+
+.myMovie__genre-list {
     display: grid;
     text-align: center;
     grid-template-columns: repeat(3, 1fr);
     gap: 0.25rem;
 }
 
- .myMovie__details-cast{
+.myMovie__details-cast {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-} 
+}
 
-.myMovie__details-figure-cast{
+.myMovie__details-figure-cast {
     height: 4rem;
     width: 4rem;
+}
+
+.footer_main {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+
+}
+
+.myMovie__footer-container {
+    display: flex;
+    width: 100%;
+    background-color: light-dark(var(--light-color), var(--dark-footer));
+    font-size: 1.5rem;
+    padding-block: 1.4rem 3rem;
+
+    justify-content: space-around;
 }
