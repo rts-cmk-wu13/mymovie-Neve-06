@@ -1,0 +1,26 @@
+
+.myMovie__text-link{
+    position: absolute; inset: 0;
+}
+
+.myMovie__text{
+    font-family: 'Mulish';
+    font-weight: bold;
+}
+
+.myMovie__text-rating{
+    color: var(--grey-text);
+    font-family: 'Mulish';
+}
+
+.myMovie__genre-text{
+    color: var(--genre-dark);
+    background-color: var(--genre-light);
+    padding: 0.25rem;
+    border-radius: 1rem;
+}
+
+.myMovie__heading-text{
+    font-family: 'Merriweather';
+    color: light-dark( var(--dark-color), var(--genre-light));
+}
